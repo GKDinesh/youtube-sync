@@ -7,31 +7,48 @@
 			body {
 				font-family: 'Courier New', Courier, serif;
 				text-transform: uppercase;
-				background-color: #000;
-				color: #fff;
 			}
 			div#container {
-				margin: 0 auto;
+				margin: 20px auto 0;
 				width: 860px;
 			}
 			h1 {
 				font-size: 3em;
 				text-align: center;
+				background-color: #000;
+				margin: 0 0 12px;
+			}
+			iframe#steinski {
+				margin-bottom: 12px;
 			}
 			ul#cites {
 				font-weight: bold;
 				text-align: right;
 				list-style-type: none;
-				float: right;
-				width: 600px;
+				float: left;
+				width: 590px;
+				padding: 12px;
+				background-color: #000;
+				margin: 0;
 			}
-			p#download { font-weight: bold; }
+			div#sharing { 
+				width: 212px;
+				color: #fff;
+				background-color: #000;
+				padding: 12px;
+				float: right;
+			}
+			p#download { 
+				font-weight: bold; 
+				padding: 0;
+				margin: 0 0 12px;
+			}
+			a { color: #fff; }
 			.clear { clear: both; }
 			span.teal { color: #44ffc8; }
 			span.lime { color: #85e83e; }
 			span.pink { color: #e83eaf; }
 			span.orange { color: #ff5f00; }
-			a { color: #fff; }
 		</style>
 	</head>
 	<body>
@@ -39,6 +56,7 @@
 			<h1><span class="pink">Mitt</span> <span class="lime">vs.</span> <span class="teal">the</span> <span class="orange">Truth</span></h1>
 			<div id="steinski"></div>
 			<ul id="cites"></ul>
+			<div id="sharing">
 			<p id="download">Download MP3:<br /><a href="http://www.mediafire.com/?edm5xex5bvt6000" target="_blank">Full Length</a><br /><a href="#">Video Edit</a></p>
 			<!-- AddThis Button BEGIN -->
 			<div class="addthis_toolbox addthis_default_style">
@@ -48,6 +66,7 @@
 			<script type="text/javascript">//var addthis_config = {"data_track_addressbar":true};</script>
 			<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-508f73296d175d26"></script>
 			<!-- AddThis Button END -->
+			</div>
 		</div>
 		<script type="text/javascript">/* @source http://purl.eligrey.com/github/timer.js/blob/master/timer.js*/ "use strict";var Timer=Timer||(function(){var c,b,a=Date.now||function(){return(new Date()).getTime()};if(typeof chrome!=="undefined"&&typeof chrome.Interval==="function"){b=(c=chrome.Interval).prototype;b.milliseconds=function(){return this.microseconds()/1000}}else{b=(c=function(){var e=0,d=0;this.start=function(){d=0;e=a()};this.stop=function(){d=a();if(e===0){d=0}};this.milliseconds=function(){var f=d;if(f===0&&e!==0){f=a()}return f-e}}).prototype;b.microseconds=function(){return this.milliseconds()*1000}}b.profile=function(d,e){if(typeof d==="string"){d=new Function(d)}this.start();while(e--){d()}this.stop()};b.seconds=function(){return this.milliseconds()/1000};return c}()); </script> <script type="text/javascript">
 			var tag = document.createElement('script');
@@ -78,11 +97,11 @@
 					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK },
 					28.8: { index: 8, text: '...let it run its course...', displayed: false, color: color.ORANGE },
 					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: color.PINK },
-					34.1: { index: 10, text: '...and hit the bottom.', displayed: false, color: color.ORANGE },
+					33.9: { index: 10, text: '...and hit the bottom.', displayed: false, color: color.ORANGE },
 					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME },
 					37.1: { index: 12, text: 'That\'s exactly what I said.', displayed: false, color: color.TEAL },
 					41.7: { index: 13, text: 'Let Detroit go bankrupt.', displayed: false, color: color.PINK },
-					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan', displayed: false, color: color.ORANGE },
+					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan.', displayed: false, color: color.ORANGE },
 					53.8: { index: 15, text: 'Say I want insurance because I\'ve got heart disease? We can\'t play the game like that.', displayed: false, color: color.TEAL },
 					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME },
 					63.8: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
@@ -95,8 +114,8 @@
 
 			function onYouTubeIframeAPIReady() {
 				player = new YT.Player('steinski', {
-					height: '480',
-					width: '853',
+					height: '484',
+					width: '860',
 					videoId: 'AB-3BsFb6Bw',
 					events: {
 						'onReady': onPlayerReady,
