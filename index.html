@@ -7,39 +7,39 @@
 			body {
 				font-family: 'Courier New', Courier, serif;
 				text-transform: uppercase;
-				background-color: #fff;
-				color: #000;
+				background-color: #000;
+				color: #fff;
 			}
 			div#container {
 				margin: 0 auto;
 				width: 860px;
 			}
 			h1 {
-				font-size: 2.5em;
+				font-size: 3em;
 				text-align: center;
-			}
-			div#steinski {
-				float: left;
 			}
 			ul#cites {
 				font-weight: bold;
 				text-align: right;
 				list-style-type: none;
 				float: right;
-				font-size: 1.25em;
 				width: 600px;
 			}
-			.clear {
-				clear: both;
-			}
+			p#download { font-weight: bold; }
+			.clear { clear: both; }
+			span.teal { color: #44ffc8; }
+			span.lime { color: #85e83e; }
+			span.pink { color: #e83eaf; }
+			span.orange { color: #ff5f00; }
+			a { color: #fff; }
 		</style>
 	</head>
 	<body>
 		<div id="container">
-			<h1>Mitt vs. the Truth</h1>
+			<h1><span class="pink">Mitt</span> <span class="lime">vs.</span> <span class="teal">the</span> <span class="orange">Truth</span></h1>
 			<div id="steinski"></div>
 			<ul id="cites"></ul>
-			<p id="download">Download MP3:<br /><a href="http://www.mediafire.com/?edm5xex5bvt6000" target="_blank">Full Length</a> <a href="#">Video Edit</a></p>
+			<p id="download">Download MP3:<br /><a href="http://www.mediafire.com/?edm5xex5bvt6000" target="_blank">Full Length</a><br /><a href="#">Video Edit</a></p>
 			<!-- AddThis Button BEGIN -->
 			<div class="addthis_toolbox addthis_default_style">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -49,7 +49,7 @@
 			<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-508f73296d175d26"></script>
 			<!-- AddThis Button END -->
 		</div>
-		<script type="text/javascript"> /* @source http://purl.eligrey.com/github/timer.js/blob/master/timer.js*/ "use strict";var Timer=Timer||(function(){var c,b,a=Date.now||function(){return(new Date()).getTime()};if(typeof chrome!=="undefined"&&typeof chrome.Interval==="function"){b=(c=chrome.Interval).prototype;b.milliseconds=function(){return this.microseconds()/1000}}else{b=(c=function(){var e=0,d=0;this.start=function(){d=0;e=a()};this.stop=function(){d=a();if(e===0){d=0}};this.milliseconds=function(){var f=d;if(f===0&&e!==0){f=a()}return f-e}}).prototype;b.microseconds=function(){return this.milliseconds()*1000}}b.profile=function(d,e){if(typeof d==="string"){d=new Function(d)}this.start();while(e--){d()}this.stop()};b.seconds=function(){return this.milliseconds()/1000};return c}()); </script> <script type="text/javascript">
+		<script type="text/javascript">/* @source http://purl.eligrey.com/github/timer.js/blob/master/timer.js*/ "use strict";var Timer=Timer||(function(){var c,b,a=Date.now||function(){return(new Date()).getTime()};if(typeof chrome!=="undefined"&&typeof chrome.Interval==="function"){b=(c=chrome.Interval).prototype;b.milliseconds=function(){return this.microseconds()/1000}}else{b=(c=function(){var e=0,d=0;this.start=function(){d=0;e=a()};this.stop=function(){d=a();if(e===0){d=0}};this.milliseconds=function(){var f=d;if(f===0&&e!==0){f=a()}return f-e}}).prototype;b.microseconds=function(){return this.milliseconds()*1000}}b.profile=function(d,e){if(typeof d==="string"){d=new Function(d)}this.start();while(e--){d()}this.stop()};b.seconds=function(){return this.milliseconds()/1000};return c}()); </script> <script type="text/javascript">
 			var tag = document.createElement('script');
 			tag.src = "//www.youtube.com/iframe_api";
 			var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -61,19 +61,35 @@
 				timer = new Timer(),
 				savedTime = 0,
 				cueTime,
+				color = {
+					TEAL: '#44ffc8',
+					LIME: '#85e83e',
+					PINK: '#e83eaf',
+					ORANGE: '#ff5f00'
+				},
 				cues = {
-					0.5: { index: 0, text: 'Listen to my words. Alright? Listen to my words.', displayed: false, color: '#d900ff' },
-					8.8: { index: 1, text: 'If you were to open a box labeled president...', displayed: false, color: '#14cc94'},
-					10.5: { index: 2, text: 'Forty-seven percent...', displayed: false, color: '#9a12b2' },
-					14.2: { index: 3, text: '...and pulled something out...', displayed: false, color: '#14cc94'},
-					15.9: { index: 4, text: 'Forty-seven percent...', displayed: false, color: '#9112b2' },
-					18.9: { index: 5, text: '...it would look like Mitt Romney.', displayed: false, color: '#14cc94' },
-					23.5: { index: 6, text: 'Don\'t try and stop the foreclosure process.', displayed: false, color: '#ffd050' },
-					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: '#64B29A' },
-					28.9: { index: 8, text: 'Let it run its course.', displayed: false, color: '#ffd050' },
-					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: '#64B29A' },
-					36.1: { index: 10, text: '...binders full of women...', displayed: false, color: '#d900ff' },
-					37.1: { index: 11, text: 'That\'s exactly what I said.', displayed: false, color: '#FFD050' },
+					0.5: { index: 0, text: 'Listen to my words. Alright? Listen to my words.', displayed: false, color: color.PINK },
+					8.8: { index: 1, text: 'If you were to open a box labeled president...', displayed: false, color: color.TEAL },
+					10.5: { index: 2, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
+					13.8: { index: 3, text: '...and pulled something out...', displayed: false, color: color.TEAL },
+					15.8: { index: 4, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
+					18.9: { index: 5, text: '...it would look like Mitt Romney.', displayed: false, color: color.TEAL },
+					23.4: { index: 6, text: 'Don\'t try and stop the foreclosure process...', displayed: false, color: color.ORANGE },
+					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK },
+					28.8: { index: 8, text: '...let it run its course...', displayed: false, color: color.ORANGE },
+					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: color.PINK },
+					34.1: { index: 10, text: '...and hit the bottom.', displayed: false, color: color.ORANGE },
+					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME },
+					37.1: { index: 12, text: 'That\'s exactly what I said.', displayed: false, color: color.TEAL },
+					41.7: { index: 13, text: 'Let Detroit go bankrupt.', displayed: false, color: color.PINK },
+					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan', displayed: false, color: color.ORANGE },
+					53.8: { index: 15, text: 'Say I want insurance because I\'ve got heart disease? We can\'t play the game like that.', displayed: false, color: color.TEAL },
+					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME },
+					63.8: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
+					73.8: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK },
+					77.2: { index: 19, text: 'I believe abortion should be safe and legal in this country.', displayed: false, color: color.TEAL },
+					82.5: { index: 20, text: 'I was an avidly pro-life governor.', displayed: false, color: color.ORANGE },
+					93.9: { index: 21, text: 'Ten thousand dollar bet?', displayed: false, color: color.LIME }
 				},
 				cites = document.getElementById('cites');
 
@@ -121,8 +137,8 @@
 				if (event.data == 1) {
 					console.log('saved time: ' + savedTime);
 					timer.start();
-					updater = window.setInterval(reportTime, 10);
-					syncer = window.setInterval(syncTime, 2000);
+					updater = window.setInterval(reportTime, 50);
+					syncer = window.setInterval(syncTime, 1000);
 				} else if (event.data == 2 || event.data == 3) {
 					savedTime = player.getCurrentTime();
 					console.log('saved time: ' + savedTime);
@@ -132,9 +148,6 @@
 					for (var item in cues) {
 						cues[item].displayed = false;
 					}
-					/* while (cites.firstChild) {
-						cites.removeChild(cites.firstChild);
-					} */
 				}
 			}
 		</script>
