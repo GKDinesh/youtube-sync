@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>Mitt vs. the Truth</title>
+		<style>
+			body {
+				font-family: 'Courier New', Courier, serif;
+				text-transform: uppercase;
+				background-color: #fff;
+				color: #000;
+			}
+			div#container {
+				margin: 0 auto;
+				width: 860px;
+			}
+			h1 {
+				font-size: 2.5em;
+				text-align: center;
+			}
+			div#steinski {
+				float: left;
+			}
+			ul#cites {
+				font-weight: bold;
+				text-align: right;
+				list-style-type: none;
+				float: right;
+				font-size: 1.25em;
+				width: 600px;
+			}
+			.clear {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<h1>Mitt vs. the Truth</h1>
+			<div id="steinski"></div>
+			<ul id="cites"></ul>
+			<p id="download">Download MP3:<br /><a href="http://www.mediafire.com/?edm5xex5bvt6000" target="_blank">Full Length</a> <a href="#">Video Edit</a></p>
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+			</div>
+			<script type="text/javascript">//var addthis_config = {"data_track_addressbar":true};</script>
+			<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-508f73296d175d26"></script>
+			<!-- AddThis Button END -->
+		</div>
+		<script type="text/javascript"> /* @source http://purl.eligrey.com/github/timer.js/blob/master/timer.js*/ "use strict";var Timer=Timer||(function(){var c,b,a=Date.now||function(){return(new Date()).getTime()};if(typeof chrome!=="undefined"&&typeof chrome.Interval==="function"){b=(c=chrome.Interval).prototype;b.milliseconds=function(){return this.microseconds()/1000}}else{b=(c=function(){var e=0,d=0;this.start=function(){d=0;e=a()};this.stop=function(){d=a();if(e===0){d=0}};this.milliseconds=function(){var f=d;if(f===0&&e!==0){f=a()}return f-e}}).prototype;b.microseconds=function(){return this.milliseconds()*1000}}b.profile=function(d,e){if(typeof d==="string"){d=new Function(d)}this.start();while(e--){d()}this.stop()};b.seconds=function(){return this.milliseconds()/1000};return c}()); </script> <script type="text/javascript">
+			var tag = document.createElement('script');
+			tag.src = "//www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var player,
+				updater,
+				syncer,
+				timer = new Timer(),
+				savedTime = 0,
+				cueTime,
+				cues = {
+					0.5: { index: 0, text: 'Listen to my words. Alright? Listen to my words.', displayed: false, color: '#d900ff' },
+					8.8: { index: 1, text: 'If you were to open a box labeled president...', displayed: false, color: '#14cc94'},
+					10.5: { index: 2, text: 'Forty-seven percent...', displayed: false, color: '#9a12b2' },
+					14.2: { index: 3, text: '...and pulled something out...', displayed: false, color: '#14cc94'},
+					15.9: { index: 4, text: 'Forty-seven percent...', displayed: false, color: '#9112b2' },
+					18.9: { index: 5, text: '...it would look like Mitt Romney.', displayed: false, color: '#14cc94' },
+					23.5: { index: 6, text: 'Don\'t try and stop the foreclosure process.', displayed: false, color: '#ffd050' },
+					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: '#64B29A' },
+					28.9: { index: 8, text: 'Let it run its course.', displayed: false, color: '#ffd050' },
+					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: '#64B29A' },
+					36.1: { index: 10, text: '...binders full of women...', displayed: false, color: '#d900ff' },
+					37.1: { index: 11, text: 'That\'s exactly what I said.', displayed: false, color: '#FFD050' },
+				},
+				cites = document.getElementById('cites');
+
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player('steinski', {
+					height: '480',
+					width: '853',
+					videoId: 'AB-3BsFb6Bw',
+					events: {
+						'onReady': onPlayerReady,
+						'onStateChange': onPlayerStateChange
+					}
+				});
+			}
+
+			function reportTime() {
+				cueTime = ((timer.milliseconds() / 1000) + savedTime).toFixed(1);
+				if (cues.hasOwnProperty(cueTime) && !cues[cueTime].displayed) {
+					console.log(player.getCurrentTime() + ' (youtube) | ' + cueTime + ' (timer)');
+					var cueElement = document.createElement('li');
+					var cueText = document.createTextNode(cues[cueTime].text);
+					cueElement.appendChild(cueText);
+					cueElement.style.color = cues[cueTime].color;
+					cites.appendChild(cueElement);
+					if (cites.children.length > 5) {
+						cites.removeChild(cites.firstChild);
+					}
+					cues[cueTime].displayed = true;
+					currentIndex = cues[cueTime].index;
+				}
+			}
+
+			function syncTime() {
+				timer.stop();
+				savedTime = player.getCurrentTime();
+				console.log('synced at ' + savedTime);
+				timer.start();
+			}
+
+			function onPlayerReady(event) {
+				console.log('ready player one?');
+			}
+
+			function onPlayerStateChange(event) {
+				if (event.data == 1) {
+					console.log('saved time: ' + savedTime);
+					timer.start();
+					updater = window.setInterval(reportTime, 10);
+					syncer = window.setInterval(syncTime, 2000);
+				} else if (event.data == 2 || event.data == 3) {
+					savedTime = player.getCurrentTime();
+					console.log('saved time: ' + savedTime);
+					timer.stop();
+					window.clearInterval(updater);
+					window.clearInterval(syncer);
+					for (var item in cues) {
+						cues[item].displayed = false;
+					}
+					/* while (cites.firstChild) {
+						cites.removeChild(cites.firstChild);
+					} */
+				}
+			}
+		</script>
+	</body>
+</html>
