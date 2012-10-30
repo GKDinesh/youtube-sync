@@ -9,7 +9,7 @@
 				text-transform: uppercase;
 			}
 			div#container {
-				margin: 20px auto 0;
+				margin: 12px auto 0;
 				width: 860px;
 			}
 			h1 {
@@ -22,14 +22,15 @@
 				margin-bottom: 12px;
 			}
 			ul#cites {
-				font-weight: bold;
-				text-align: right;
+				text-align: left;
 				list-style-type: none;
 				float: left;
 				width: 590px;
 				padding: 12px;
 				background-color: #000;
 				margin: 0;
+				display: none;
+				font-size: 1.25em;
 			}
 			div#sharing { 
 				width: 212px;
@@ -80,6 +81,7 @@
 				timer = new Timer(),
 				savedTime = 0,
 				cueTime,
+				citesVisible = false,
 				color = {
 					TEAL: '#44ffc8',
 					LIME: '#85e83e',
@@ -88,7 +90,7 @@
 				},
 				cues = {
 					0.5: { index: 0, text: 'Listen to my words. Alright? Listen to my words.', displayed: false, color: color.PINK },
-					8.8: { index: 1, text: 'If you were to open a box labeled president...', displayed: false, color: color.TEAL },
+					8.7: { index: 1, text: 'If you were to open a box labeled president...', displayed: false, color: color.TEAL },
 					10.5: { index: 2, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
 					13.8: { index: 3, text: '...and pulled something out...', displayed: false, color: color.TEAL },
 					15.8: { index: 4, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
@@ -104,11 +106,14 @@
 					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan.', displayed: false, color: color.ORANGE },
 					53.8: { index: 15, text: 'Say I want insurance because I\'ve got heart disease? We can\'t play the game like that.', displayed: false, color: color.TEAL },
 					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME },
-					63.8: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
-					73.8: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK },
-					77.2: { index: 19, text: 'I believe abortion should be safe and legal in this country.', displayed: false, color: color.TEAL },
-					82.5: { index: 20, text: 'I was an avidly pro-life governor.', displayed: false, color: color.ORANGE },
-					93.9: { index: 21, text: 'Ten thousand dollar bet?', displayed: false, color: color.LIME }
+					63.6: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
+					73.4: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK },
+					77.2: { index: 19, text: 'I believe that abortion should be safe and legal in this country.', displayed: false, color: color.TEAL },
+					82.1: { index: 20, text: 'I was an avidly pro-life governor.', displayed: false, color: color.ORANGE },
+					84.2: { index: 21, text: 'I have to ask you — are you calling Mitt Romney...', displayed: false, color: color.TEAL },
+					87.9: { index: 22, text: '...a liar?', displayed: false, color: color.TEAL },
+					90.2: { index: 23, text: 'Yes', displayed: false, color: color.PINK },
+					93.9: { index: 24, text: 'Ten thousand dollar bet?', displayed: false, color: color.LIME }
 				},
 				cites = document.getElementById('cites');
 
@@ -116,7 +121,7 @@
 				player = new YT.Player('steinski', {
 					height: '484',
 					width: '860',
-					videoId: 'AB-3BsFb6Bw',
+					videoId: 'suLji910lMM',
 					events: {
 						'onReady': onPlayerReady,
 						'onStateChange': onPlayerStateChange
@@ -127,6 +132,10 @@
 			function reportTime() {
 				cueTime = ((timer.milliseconds() / 1000) + savedTime).toFixed(1);
 				if (cues.hasOwnProperty(cueTime) && !cues[cueTime].displayed) {
+					if (!citesVisible) {
+						cites.style.display = 'block';
+						citesVisible = true;
+					}
 					console.log(player.getCurrentTime() + ' (youtube) | ' + cueTime + ' (timer)');
 					var cueElement = document.createElement('li');
 					var cueText = document.createTextNode(cues[cueTime].text);
@@ -144,8 +153,8 @@
 			function syncTime() {
 				timer.stop();
 				savedTime = player.getCurrentTime();
-				console.log('synced at ' + savedTime);
 				timer.start();
+				console.log('synced at ' + savedTime);
 			}
 
 			function onPlayerReady(event) {
@@ -156,8 +165,8 @@
 				if (event.data == 1) {
 					console.log('saved time: ' + savedTime);
 					timer.start();
-					updater = window.setInterval(reportTime, 50);
-					syncer = window.setInterval(syncTime, 1000);
+					updater = window.setInterval(reportTime, 10);
+					syncer = window.setInterval(syncTime, 2000);
 				} else if (event.data == 2 || event.data == 3) {
 					savedTime = player.getCurrentTime();
 					console.log('saved time: ' + savedTime);
