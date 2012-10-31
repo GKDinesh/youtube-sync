@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Mitt vs. the Truth</title>
-		<style> body {font-family: 'Courier New', Courier, serif; text-transform: uppercase; background-image: url('hundred_dollars.jpg'); padding: 0; margin: 0; } div.container {margin: 0 auto; width: 860px; margin-bottom: 12px; } div.container.animate { width: 100%; text-align: center; overflow: hidden; } div.images { width: 100%; height: 484px; background-position: top center; background-repeat: no-repeat; } div#binders { background-image: url('binders.png'); } div#guns { background-image: url('guns.png'); } div#bigbird { background-image: url('bigbird.png'); } h1 {font-size: 3em; text-align: center; background-color: #000; margin: 0 0 12px; padding: 12px 0; } ul#cites {text-align: left; list-style-type: none; float: left; width: 590px; padding: 12px; background-color: #000; margin: 0; display: none; font-size: 1.25em; font-weight: bold; } div#sharing {width: 212px; color: #fff; background-color: #000; padding: 12px; float: right; } p#download {font-weight: bold; padding: 0; margin: 0 0 12px; } a { color: #fff; } .clear { clear: both; } span.teal { color: #29fdf5; } span.lime { color: #6ffd29; } span.pink { color: #fd29f1; } span.orange { color: #f9f23e; } iframe.twitter-share-button { position: relative; top: 5px; }</style>
+		<style> body {font-family: 'Courier New', Courier, serif; text-transform: uppercase; background-image: url('hundred_dollars.png'); padding: 0; margin: 0; } div.container {margin: 0 auto; width: 860px; margin-bottom: 12px; } div.container.animate { width: 100%; text-align: center; overflow: hidden; } div.images { width: 100%; height: 484px; background-position: top center; background-repeat: no-repeat; } div#binders { background-image: url('binders.png'); } div#guns { background-image: url('guns.png'); } div#bigbird { background-image: url('bigbird.png'); } div#foreclosure { background-image: url('foreclosure.png'); } div#prolife { background-image: url('prolife.png'); } div#prochoice { background-image: url('prochoice.png'); } h1 {font-size: 3em; text-align: center; background-color: #000; margin: 0 0 12px; padding: 12px 0; } ul#cites {text-align: left; list-style-type: none; float: left; width: 590px; padding: 12px; background-color: #000; margin: 0; display: none; font-size: 1.25em; font-weight: bold; } div#sharing {width: 212px; color: #fff; background-color: #000; padding: 12px; float: right; } p#download {font-weight: bold; padding: 0; margin: 0 0 12px; } a { color: #fff; } .clear { clear: both; } span.teal { color: #29fdf5; } span.lime { color: #6ffd29; } span.pink { color: #fd29f1; } span.orange { color: #f9f23e; } iframe.twitter-share-button { position: relative; top: 5px; }</style>
 		<meta property="og:url" content="http://www.mittvsthetruth.com/" />
 		<meta property="og:title" content="Mitt vs. the Truth" />
 		<meta property="og:video" content="http://www.youtube.com/v/suLji910lMM?version=3&amp;autohide=1" />
@@ -18,10 +18,16 @@
 			<h1><span class="pink">Mitt</span> <span class="lime">vs.</span> <span class="teal">the</span> <span class="orange">Truth</span></h1>
 		</div>
 		<div class="container animate">
-			<div id="binders" class="images">
-				<div id="guns" class="images">
-					<div id="bigbird" class="images">
-						<div id="steinski"></div>
+			<div id="prochoice" class="images">
+				<div id="prolife" class="images">
+					<div id="binders" class="images">
+						<div id="foreclosure" class="images">
+							<div id="guns" class="images">
+								<div id="bigbird" class="images">
+									<div id="steinski"></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -62,20 +68,20 @@
 					13.8: { index: 3, text: '...and pulled something out...', displayed: false, color: color.TEAL },
 					15.8: { index: 4, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
 					18.9: { index: 5, text: '...it would look like Mitt Romney.', displayed: false, color: color.TEAL },
-					23.4: { index: 6, text: 'Don\'t try and stop the foreclosure process...', displayed: false, color: color.ORANGE },
-					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK, showSprite: 'bigbird' },
+					23.4: { index: 6, text: 'Don\'t try and stop the foreclosure process...', displayed: false, color: color.ORANGE, callback: showSprite, payload: 'foreclosure' },
+					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK, callback: showSprite, payload: 'bigbird' },
 					28.8: { index: 8, text: '...let it run its course...', displayed: false, color: color.ORANGE },
 					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: color.PINK },
 					33.9: { index: 10, text: '...and hit the bottom.', displayed: false, color: color.ORANGE },
-					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME, showSprite: 'binders' },
+					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME, callback: showSprite, payload: 'binders' },
 					37.1: { index: 12, text: 'That\'s exactly what I said.', displayed: false, color: color.TEAL },
 					41.7: { index: 13, text: 'Let Detroit go bankrupt.', displayed: false, color: color.PINK },
 					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan.', displayed: false, color: color.ORANGE },
 					53.8: { index: 15, text: 'Say I want insurance because I\'ve got heart disease? We can\'t play the game like that.', displayed: false, color: color.TEAL },
-					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME, showSprite: 'guns' },
+					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME, callback: showSprite, payload: 'guns' },
 					63.6: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
-					73.4: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK },
-					77.2: { index: 19, text: 'I believe that abortion should be safe and legal in this country.', displayed: false, color: color.TEAL },
+					73.4: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK, callback: showSprite, payload: 'prolife' },
+					77.2: { index: 19, text: 'I believe that abortion should be safe and legal in this country.', displayed: false, color: color.TEAL, callback: showSprite, payload: 'prochoice' },
 					82.1: { index: 20, text: 'I was an avidly pro-life governor.', displayed: false, color: color.ORANGE },
 					84.2: { index: 21, text: 'I have to ask you — are you calling Mitt Romney...', displayed: false, color: color.TEAL },
 					87.9: { index: 22, text: '...a liar?', displayed: false, color: color.TEAL },
@@ -115,19 +121,17 @@
 					cueElement.appendChild(cueText);
 					cueElement.style.color = currentCue.color;
 					cites.insertBefore(cueElement, cites.firstChild);
-					if (!!currentCue.showSprite) {
-						console.log('showSprite called');
-						var element = document.getElementById(currentCue.showSprite);
-						console.log(element);
-						element.style.backgroundPosition = '50% 100%';
-						
-					}
-					if (cites.children.length > 7) {
-						cites.removeChild(cites.lastChild);
-					}
+					if (!!currentCue.callback) currentCue.callback(currentCue.payload);
+					if (cites.children.length > 7) cites.removeChild(cites.lastChild);
 					cues[cueTime].displayed = true;
 					currentIndex = currentCue.index;
 				}
+			}
+
+			function showSprite(id) {
+				console.log('showSprite called');
+				var element = document.getElementById(id);
+				element.style.backgroundPosition = '50% 100%';
 			}
 
 			function syncTime() {
