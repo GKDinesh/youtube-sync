@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Mitt vs. the Truth</title>
-		<style> body {font-family: 'Courier New', Courier, serif; text-transform: uppercase; background-image: url('hundred_dollars.jpg'); padding: 0; margin: 0; } div#container {margin: 0 auto; width: 860px; } h1 {font-size: 3em; text-align: center; background-color: #000; margin: 0 0 12px; padding: 12px 0; } iframe#steinski {margin-bottom: 12px; } ul#cites {text-align: left; list-style-type: none; float: left; width: 590px; padding: 12px; background-color: #000; margin: 0; display: none; font-size: 1.25em; font-weight: bold; } div#sharing {width: 212px; color: #fff; background-color: #000; padding: 12px; float: right; } p#download {font-weight: bold; padding: 0; margin: 0 0 12px; } a { color: #fff; } .clear { clear: both; } span.teal { color: #44ffc8; } span.lime { color: #85e83e; } span.pink { color: #e83eaf; } span.orange { color: #ff5f00; } iframe.twitter-share-button { position: relative; top: 5px; }</style>
+		<style> body {font-family: 'Courier New', Courier, serif; text-transform: uppercase; background-image: url('hundred_dollars.jpg'); padding: 0; margin: 0; } div.container {margin: 0 auto; width: 860px; margin-bottom: 12px; } div.container.animate { width: 100%; text-align: center; overflow: hidden; } div.images { width: 100%; height: 484px; background-position: top center; background-repeat: no-repeat; } div#binders { background-image: url('binders.png'); } div#guns { background-image: url('guns.png'); } div#bigbird { background-image: url('bigbird.png'); } h1 {font-size: 3em; text-align: center; background-color: #000; margin: 0 0 12px; padding: 12px 0; } ul#cites {text-align: left; list-style-type: none; float: left; width: 590px; padding: 12px; background-color: #000; margin: 0; display: none; font-size: 1.25em; font-weight: bold; } div#sharing {width: 212px; color: #fff; background-color: #000; padding: 12px; float: right; } p#download {font-weight: bold; padding: 0; margin: 0 0 12px; } a { color: #fff; } .clear { clear: both; } span.teal { color: #44ffc8; } span.lime { color: #85e83e; } span.pink { color: #e83eaf; } span.orange { color: #ff5f00; } iframe.twitter-share-button { position: relative; top: 5px; }</style>
 		<meta property="og:url" content="http://www.mittvsthetruth.com/" />
 		<meta property="og:title" content="Mitt vs. the Truth" />
 		<meta property="og:video" content="http://www.youtube.com/v/suLji910lMM?version=3&amp;autohide=1" />
@@ -14,9 +14,19 @@
     <meta property="og:image" content="http://www.mittvsthetruth.com/aviator.jpg" />
 	</head>
 	<body>
-		<div id="container">
+		<div class="container">
 			<h1><span class="pink">Mitt</span> <span class="lime">vs.</span> <span class="teal">the</span> <span class="orange">Truth</span></h1>
-			<div id="steinski"></div>
+		</div>
+		<div class="container animate">
+			<div id="binders" class="images">
+				<div id="guns" class="images">
+					<div id="bigbird" class="images">
+						<div id="steinski"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
 			<ul id="cites"></ul>
 			<div id="sharing">
 			<div class="fb-like" data-href="http://www.mittvsthetruth.com/" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
@@ -53,16 +63,16 @@
 					15.8: { index: 4, text: 'Forty-seven percent...', displayed: false, color: color.LIME },
 					18.9: { index: 5, text: '...it would look like Mitt Romney.', displayed: false, color: color.TEAL },
 					23.4: { index: 6, text: 'Don\'t try and stop the foreclosure process...', displayed: false, color: color.ORANGE },
-					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK },
+					26.4: { index: 7, text: 'Big Bird!', displayed: false, color: color.PINK, showSprite: 'bigbird' },
 					28.8: { index: 8, text: '...let it run its course...', displayed: false, color: color.ORANGE },
 					31.5: { index: 9, text: 'Big Bird!', displayed: false, color: color.PINK },
 					33.9: { index: 10, text: '...and hit the bottom.', displayed: false, color: color.ORANGE },
-					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME },
+					36.1: { index: 11, text: '...binders full of women...', displayed: false, color: color.LIME, showSprite: 'binders' },
 					37.1: { index: 12, text: 'That\'s exactly what I said.', displayed: false, color: color.TEAL },
 					41.7: { index: 13, text: 'Let Detroit go bankrupt.', displayed: false, color: color.PINK },
 					50.1: { index: 14, text: 'Preexisting conditions are covered under my plan.', displayed: false, color: color.ORANGE },
 					53.8: { index: 15, text: 'Say I want insurance because I\'ve got heart disease? We can\'t play the game like that.', displayed: false, color: color.TEAL },
-					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME },
+					59.1: { index: 16, text: 'Tough gun laws in Massachusetts — I support them.', displayed: false, color: color.LIME, showSprite: 'guns' },
 					63.6: { index: 17, text: 'I worked to advance the rights of gun owners in my state.', displayed: false, color: color.ORANGE },
 					73.4: { index: 18, text: 'I have always opposed abortion.', displayed: false, color: color.PINK },
 					77.2: { index: 19, text: 'I believe that abortion should be safe and legal in this country.', displayed: false, color: color.TEAL },
@@ -86,24 +96,37 @@
 				});
 			}
 
-			function reportTime() {
+			function showBigBird() {
+
+			}
+
+			function showCues() {
 				cueTime = ((timer.milliseconds() / 1000) + savedTime).toFixed(1);
 				if (cues.hasOwnProperty(cueTime) && !cues[cueTime].displayed) {
+					var currentCue = cues[cueTime];
+					console.log(currentCue);
 					if (!citesVisible) {
 						cites.style.display = 'block';
 						citesVisible = true;
 					}
 					console.log(player.getCurrentTime() + ' (youtube) | ' + cueTime + ' (timer)');
 					var cueElement = document.createElement('li');
-					var cueText = document.createTextNode(cues[cueTime].text);
+					var cueText = document.createTextNode(currentCue.text);
 					cueElement.appendChild(cueText);
-					cueElement.style.color = cues[cueTime].color;
-					cites.appendChild(cueElement);
-					if (cites.children.length > 5) {
-						cites.removeChild(cites.firstChild);
+					cueElement.style.color = currentCue.color;
+					cites.insertBefore(cueElement, cites.firstChild);
+					if (!!currentCue.showSprite) {
+						console.log('showSprite called');
+						var element = document.getElementById(currentCue.showSprite);
+						console.log(element);
+						element.style.backgroundPosition = '50% 100%';
+						
+					}
+					if (cites.children.length > 7) {
+						cites.removeChild(cites.lastChild);
 					}
 					cues[cueTime].displayed = true;
-					currentIndex = cues[cueTime].index;
+					currentIndex = currentCue.index;
 				}
 			}
 
@@ -122,7 +145,7 @@
 				if (event.data == 1) {
 					console.log('saved time: ' + savedTime);
 					timer.start();
-					updater = window.setInterval(reportTime, 10);
+					updater = window.setInterval(showCues, 10);
 					syncer = window.setInterval(syncTime, 2000);
 				} else if (event.data == 2 || event.data == 3) {
 					savedTime = player.getCurrentTime();
@@ -135,6 +158,7 @@
 					}
 				}
 			}
+
 		</script>
 		<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-35969039-1']); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>
 		<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
