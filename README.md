@@ -1,1 +1,1 @@
-Syncs captions with a YouTube video.
+Enhanced music video at http://www.mittvsthetruth.com/
